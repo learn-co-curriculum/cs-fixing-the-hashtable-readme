@@ -1,6 +1,9 @@
 tags:
-  - a tag
+  - Map interface
+  - Hash table
+  - Performance bug
+  - UML class diagram
 languages:
-  - a language
+  - Jave
 resources: 
-  - 0
+  - 1
