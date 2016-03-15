@@ -1,6 +1,6 @@
 # cs-fixing-the-hashtable-readme
 
-## Learning goals 
+## Learning goals
 
 1.  Fix a performance bug.
 2.  Use UML class diagrams to represent relationships between classes.
@@ -32,7 +32,7 @@ And that makes `put` linear, too, because it uses `size`:
 ```java
 	public V put(K key, V value) {
 		V oldValue = super.put(key, value);
-		
+
 		if (size() > maps.size() * FACTOR) {
 			rehash();
 		}
@@ -50,16 +50,16 @@ Here's the beginning of the class definition:
 
 ```java
 public class MyFixedHashMap<K, V> extends MyHashMap<K, V> implements Map<K, V> {
-	
+
 	private int size = 0;
-	
+
 	public void clear() {
 		super.clear();
 		size = 0;
 	}
 ```
 
-Rather than modify `MyHashedMap`, we define a new class that extends it.  It add a new instance variable, `size`, which is initialized to zero.
+Rather than modify `MyHashedMap`, we define a new class that extends it.  It adds a new instance variable, `size`, which is initialized to zero.
 
 Updating `clear` is straightforward; we invoke `clear` in the superclass (which clears the sub-maps), and then update `size`.
 
@@ -87,7 +87,7 @@ The rewritten version of `put` is similar:
 		size -= map.size();
 		V oldValue = map.put(key, value);
 		size += map.size();
-		
+
 		if (size() > maps.size() * FACTOR) {
 			size = 0;
 			rehash();
@@ -98,7 +98,7 @@ The rewritten version of `put` is similar:
 
 We have the same problem here: when we invoke `put` on the sub-map, we don't know whether it added a new entry.  So we use the same solution, subtracting off the old size and then adding in the new size.
 
-Now the implementation of the `size` method is simple: 
+Now the implementation of the `size` method is simple:
 
 
 ```java
