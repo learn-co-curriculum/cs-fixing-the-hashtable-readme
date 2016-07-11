@@ -116,7 +116,7 @@ When we profiled this solution, we found that the total time for putting `n` key
 
 One challenge of working with the code for this lab is that we have several classes that depend on each other.  Here are some of the relationships between the classes:
 
-*  `MyLinearMap` contains a `ArrayList` and implements `Map`.
+*  `MyLinearMap` contains an `ArrayList` and implements `Map`.
 *  `MyBetterMap` contains many `MyLinearMap` objects and implements `Map`.
 *  `MyHashMap` extends `MyBetterMap`, so it also contains `MyLinearMap` objects, and it implements `Map`.
 *  `MyFixedHashMap` also extends `MyHashMap`, and it implements `Map`.
